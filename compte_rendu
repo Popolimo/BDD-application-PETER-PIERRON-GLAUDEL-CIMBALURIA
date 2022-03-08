@@ -1,0 +1,59 @@
+Préparation séance 2 :
+
+Categorie( id, nom, descr)
+Annonce (id, titre, date, texte, #idCateg)
+Photo( id, file, date, taille_octet, #idAnnonce)
+LienPA(#idAnnonce, #idPhoto)
+
+
+
+class Annonce extends \Illuminate\Database\Eloquent\Model { 
+protected $table=’annonce’;
+protected $primaryKey='id';
+
+public function photo() {
+return $this->hasMany('photo', 'idAnnonce')
+}
+}
+
+
+class Categorie extends \Illuminate\Database\Eloquent\Model { 
+protected $table=’categorie’;
+protected $primaryKey='id';
+
+public function annonce() {
+return $this->belongsToMany('annonce', ‘idPhoto’,  'idAnnonce')
+}
+}
+
+
+
+
+3) requêtes :
+
+
+$a = Annonce::find(22);
+
+$pho= $a->photo()->get(); 
+
+ 
+$a = Annonce::find(22);
+
+$pho= $a->photo()->where(‘taille_octets’, ‘>’, 100000)
+->get(); 
+
+ 
+$lPa = new LienPA(); 
+$lPa->idAnnonce = 22; 
+$lPa->Photo = idPhoto
+$lPa->save(); 
+
+ 
+$a = Annonce::find(22);
+$a -> idCateg = 42;
+$a->save()
+$b=new Annonce($a->id, $a->titre, $a->date, $a->texte, 73)
+$b->save()
+
+
+
