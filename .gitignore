@@ -21,3 +21,7 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+src/config/dbconfig.ini
+composer.lock
+composer.lock
