@@ -9,7 +9,7 @@ namespace appbdd\modele;
  * Représente un item au sein de la base de données
  * Hérite de la classe Modele du module Eloquent
  */
-class Company extends \Illuminate\Database\Eloquent\Model
+class Game_rating extends \Illuminate\Database\Eloquent\Model
 {
 
     // ATTRIBUTS
