@@ -297,3 +297,25 @@ echo floatval($b)-floatval($a)." ms mon pote <br>";
 */
 
 //Séance 3.4
+DB::connection()->enableQueryLog();
+
+$req7 = Game::select("*")->where('name','like', 'mario%' )->with("character")->get();
+foreach($req7 as $value){
+    $charac = $value->character;
+    print($value->name . " a pour personnage : <br>");
+
+    foreach($charac as $value){
+        print($value->name . "<br> <br>");
+
+    }
+    //print(var_dump($value));
+    /* echo "Nom du jeu " . $value->name . "<br>";
+     echo "Nom Perso :". $value->real_name . "<br>";*/
+
+}
+print(time());
+$queries = DB::getQueryLog();
+
+foreach ($queries as $query) {
+    echo $query['query'] . '<br>';
+}
