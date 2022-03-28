@@ -281,3 +281,19 @@ foreach ($aled as $b){
     echo $b->description." <br>";
 }
 */
+
+//Séance 3.3
+/*
+$a = microtime();
+$aled = Game::where("name","like","%Mario%")->with("character")->get();
+
+
+foreach ($aled as $b){
+    echo $b->name."<br>";
+
+}
+$b = microtime();
+echo floatval($b)-floatval($a)." ms mon pote <br>";
+*/
+
+//Séance 3.4
