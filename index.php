@@ -257,7 +257,7 @@ foreach ($aled as $b){
 
 
 //Séance 3 : 1.1
-
+/*
 $a = microtime();
 $aled = Company::all();
 $b = microtime();
@@ -267,3 +267,17 @@ foreach ($aled as $b){
     echo $b->name." <br>";
     echo $b->description." <br>";
 }
+
+*/
+//Séance 3.2
+/*
+$a = microtime();
+$aled = Game::where("name","like","%Mario%")->get();
+$b = microtime();
+echo floatval($b)-floatval($a)."ms mon pote <br>";
+
+foreach ($aled as $b){
+    echo $b->name." <br>";
+    echo $b->description." <br>";
+}
+*/
