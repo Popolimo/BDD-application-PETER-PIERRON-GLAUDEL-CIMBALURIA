@@ -200,6 +200,7 @@ foreach($req12 as $value){
 //les jeux dont le nom débute Mario, publiés par une compagnie dont le nom contient "Inc",
 //dont le rating initial contient "3+" et ayant reçu un avis de la part du rating board nommé
 //"CERO"
+/*
 $req12 = Game::where('name','like', 'mario%' )->get();
 $r1222 = Game_rating::where('name','like','%3+%')->get();
 $r13 = Company::where('name','like','%Inc.%')->get();
@@ -233,6 +234,7 @@ foreach($req12 as $value){
        }
     }
 }
+*/
 
 
 //$cr = new Genre();
@@ -242,4 +244,26 @@ foreach($req12 as $value){
 
 //$cr->save();
 
+//Seance 3 : 2.2
+/**
+$aled = Company::all();
 
+
+foreach ($aled as $b){
+    echo $b->name." <br>";
+    echo $b->description." <br>";
+}
+ * */
+
+
+//Séance 3 : 1.1
+
+$a = microtime();
+$aled = Company::all();
+$b = microtime();
+echo floatval($b)-floatval($a)."ms mon pote <br>";
+
+foreach ($aled as $b){
+    echo $b->name." <br>";
+    echo $b->description." <br>";
+}
