@@ -323,7 +323,7 @@ foreach ($queries as $query) {
 }*/
 
 //Séance 4
-
+/*
 
 Account::where('email','=','admin@localhost.com')->delete();
 Account::where('email','=','ouinon@localhost.com')->delete();
@@ -401,3 +401,6 @@ $account2->save();
 $account3->save();
 
 
+*/
+
+\appbdd\controller\TD2::populateBdd();
