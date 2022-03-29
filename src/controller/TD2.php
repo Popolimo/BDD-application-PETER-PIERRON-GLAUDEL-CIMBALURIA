@@ -21,7 +21,8 @@ class TD2
         $faker->addProvider(new Company($faker));
         $faker->addProvider(new Internet($faker));
         $faker->addProvider(new DateTime($faker));
-        for ($i = 0; $i < 25000; $i++) {
+
+        /*for ($i = 0; $i < 25000; $i++) {
           $obj = new modele\Account();
           $obj->email = $faker->email;
           $obj->nom = $faker->lastName;
@@ -30,6 +31,18 @@ class TD2
           $obj->numero = $faker->phoneNumber;
           $obj->dateNaissance = $faker->dateTime;
           $obj->save();
+        }*/
+
+
+        for($k = 0; $k < 25000; $k){
+            $obj = new modele\Comment();
+            $obj->email = $faker->email;
+            $obj->contenu = $faker->lastName;
+            $obj->dateCreation = $faker->dateTime();
+            $obj->dateUpdate = $faker->dateTime();
+            $obj->titre = $faker->address;
+            $obj->IdJeu = $faker->numberBetween(1,25000);
+            $obj->save();
         }
     }
 }
