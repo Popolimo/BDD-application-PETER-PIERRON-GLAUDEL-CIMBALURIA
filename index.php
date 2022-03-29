@@ -27,7 +27,6 @@ $app->get('/api/games/{id}/comments',
     function (Request $rq, Response $rs, $args): Response {
         $obj = \appbdd\modele\Comment::where("idjeu","=", $args["id"])->get();
 
-
         return $rs->write(json_encode($obj));
     });
 
@@ -35,8 +34,8 @@ $app->get('/api/games/{id}',
     function (Request $rq, Response $rs, $args): Response {
         $obj = \appbdd\modele\Game::where("id","=", $args["id"])->get();
 
-       $obj[] = array("self" => array("href" => "/api/games/" . $args["id"]));
-
+     //  $obj[] = array("self" => array("href" => "/api/games/" . $args["id"]));
+        $res = array("game" => $obj, "links" => array("comments" => array("href"=>"/api/game/".$args["id"]."/comments"), "characters" => array("href"=>"/api/game/".$args["id"]."/characters")));
         return $rs->write(json_encode($obj));
 });
 $app->get('/api/games',
