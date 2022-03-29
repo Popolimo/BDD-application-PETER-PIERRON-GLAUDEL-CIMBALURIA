@@ -403,4 +403,11 @@ $account3->save();
 
 */
 
-\appbdd\controller\TD2::populateBdd();
+ // \appbdd\controller\TD2::populateBdd();
+
+$req1 = Comment::where( 'email', 'like', 'aBenoit@gmail.com' )->get();
+
+foreach ($req1 as $l){
+    echo "{$l->email},{$l->nom}";
+    echo"<br>";
+}
